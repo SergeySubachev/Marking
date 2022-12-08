@@ -22,8 +22,7 @@ function ShowError() {
 function GetDescriptionGOST() {
     Clear();
 
-    var tBox = document.getElementById("tbGOSTMark");
-    var mark = tBox.value;
+    var mark = document.getElementById("tbGOSTMark").value;
     var description = [];
 
     var level = mark.charAt(0);
@@ -157,6 +156,119 @@ function GetDescriptionGOST() {
                 ShowError();
                 return;
         }
+    }
+
+    ShowDescription(description);
+}
+
+function GetDescriptionPIVRE() {
+    Clear();
+
+    var mark = document.getElementById("tbPIVREMark").value;
+    var description = [];
+
+    if (mark.length < 6) {
+        ShowError();
+        return;
+    }
+
+    var level = mark.charAt(0);
+    switch (level) {
+        case 'О':
+            description.push('О - Уровень взрывозащиты: "Особовзрывобезопасное электрооборудование"');
+            break;
+        case 'В':
+            description.push('В - Уровень взрывозащиты: "Взрывобезопасное электрооборудование"');
+            break;
+        case 'Н':
+            description.push('Н - Уровень взрывозащиты: "Электрооборудование повышенной надежности против взрыва"');
+            break;
+        default:
+            ShowError();
+            return;
+    }
+
+    var category = mark.substring(1, 2);
+    switch (category) {
+        case '1':
+            description.push('1 - Наивышая категория взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. категории 1; по ГОСТ - IIA)');
+            break;
+        case '2':
+            description.push('2 - Наивышая категория взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. категорий 1, 2; по ГОСТ - IIA)');
+            break;
+        case '3':
+            description.push('3 - Наивышая категория взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. категорий 1-3; по ГОСТ - IIA, IIB)');
+            break;
+        case '4':
+            description.push('4 - Наивышая категория взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. категорий 1-4; по ГОСТ - IIA, IIB, IIC)');
+            break;
+        default:
+            ShowError();
+            return;
+    }
+
+    var group = mark.substring(2, 4);
+    switch (group) {
+        case 'Т1':
+            description.push('Т1 - Наивысшая группа взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. группы Т1)');
+            break;
+        case 'Т2':
+            description.push('Т2 - Наивысшая группа взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. групп Т1 и Т2)');
+            break;
+        case 'Т3':
+            description.push('Т3 - Наивысшая группа взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. групп Т1, Т2 и Т3)');
+            break;
+        case 'Т4':
+            description.push('Т4 - Наивысшая группа взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. групп Т1, Т2, Т3 и Т4)');
+            break;
+        case 'Т5':
+            description.push('Т5 - Наивысшая группа взрывоопасной смеси, для которой электрооборудование является взрывозащищенным (для в.о.с. групп Т1, Т2, Т3, Т4 и Т5)');
+            break;
+        default:
+            ShowError();
+            return;
+    }
+
+    var kinds = mark.substring(4);
+    var i = 0;
+    if (kinds.length > 0) {
+        do {
+            var kind = kinds.substring(i, i + 2);
+            switch (kind) {
+                case '-В':
+                    description.push('В - вид взрывозащиты: "Взрывонепроницаемая оболочка"');
+                    break;
+                case '-П':
+                    description.push('П - вид взрывозащиты: "Заполнение или продувка оболочки под избыточным давлением защитным газом"');
+                    break;
+                case '-И':
+                    description.push('И - вид взрывозащиты: "Искробезопасная электрическая цепь"');
+                    break;
+                case '-К':
+                    description.push('К - вид взрывозащиты: "Кварцевое заполнение оболочки с токоведущими частями"');
+                    break;
+                case '-М':
+                    description.push('М - вид взрывозащиты: "Масляное заполнение оболочки с токоведущими частями"');
+                    break;
+                case '-А':
+                    description.push('А - вид взрывозащиты: "Автоматическое отключение от источника электроэнергии"');
+                    break;
+                case '-С':
+                    description.push('С - вид взрывозащиты: "Специальный вид взрывозащиты"');
+                    break;
+                case '-Н':
+                    description.push('Н - вид взрывозащиты: "Повышенная надежность против взрыва (защита вида "е")"');
+                    break;
+                default:
+                    ShowError();
+                    return;
+            }
+            i += 2;
+        } while (i < kinds.length);
+    }
+    else {
+        ShowError();
+        return;
     }
 
     ShowDescription(description);
