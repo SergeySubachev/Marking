@@ -6,14 +6,24 @@ function OnModeChange() {
     document.getElementById("divGOST").hidden = !document.getElementById("radioGOST").checked;
     document.getElementById("divPIVRE").hidden = !document.getElementById("radioPIVRE").checked;
     document.getElementById("divPIVE").hidden = !document.getElementById("radioPIVE").checked;
+    Clear();
+}
+
+function Clear() {
+    let divResult = document.getElementById("divResult");
+    divResult.innerHTML = "пусто";
 }
 
 function ShowError() {
-
+    let divResult = document.getElementById("divResult");
+    divResult.innerHTML = "Не удалось расшифровать маркировку.";
 }
 
 function GetDescriptionGOST() {
-    var mark = document.getElementById("tbGOSTMark").innerText;
+    Clear();
+
+    var tBox = document.getElementById("tbGOSTMark");
+    var mark = tBox.value;
     var description = [];
 
     var level = mark.charAt(0);
@@ -99,5 +109,12 @@ function GetDescriptionGOST() {
 }
 
 function ShowDescription(description) {
-    
+    let divResult = document.getElementById("divResult");
+    divResult.innerHTML = "";
+    for (const it of description) {
+        let p = document.createElement("p");
+        p.innerText = it;
+        p.style.lineHeight = 1.0;
+        divResult.appendChild(p);
+    }
 }
