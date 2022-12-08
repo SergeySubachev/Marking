@@ -11,7 +11,7 @@ function OnModeChange() {
 
 function Clear() {
     let divResult = document.getElementById("divResult");
-    divResult.innerHTML = "пусто";
+    divResult.innerHTML = '';
 }
 
 function ShowError() {
@@ -22,7 +22,10 @@ function ShowError() {
 function GetDescriptionGOST() {
     Clear();
 
-    var mark = document.getElementById("tbGOSTMark").value;
+    var tBox = document.getElementById("tbGOSTMark");
+    var mark = tBox.value;
+    if (mark == '') mark = tBox.placeholder;
+
     var description = [];
 
     var level = mark.charAt(0);
@@ -164,7 +167,10 @@ function GetDescriptionGOST() {
 function GetDescriptionPIVRE() {
     Clear();
 
-    var mark = document.getElementById("tbPIVREMark").value;
+    var tBox = document.getElementById("tbPIVREMark");
+    var mark = tBox.value;
+    if (mark == '') mark = tBox.placeholder;
+
     var description = [];
 
     if (mark.length < 6) {
@@ -277,7 +283,10 @@ function GetDescriptionPIVRE() {
 function GetDescriptionPIVE() {
     Clear();
 
-    var mark = document.getElementById("tbPIVEMark").value;
+    var tBox = document.getElementById("tbPIVEMark");
+    var mark = tBox.value;
+    if (mark == '') mark = tBox.placeholder;
+
     var description = [];
 
     if (mark.length < 3) {
