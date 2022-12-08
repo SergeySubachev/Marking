@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icon32.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="img/icon114.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="img/icon57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icon72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icon114.png" />
+
+    <title>Маркировка взрывозащищенного электрооборудования</title>
+
+    <link rel="stylesheet" href="w3.css">
+    <script src="js/controller.js"></script>
+</head>
+
+<body>
+    <div class="w3-container w3-round w3-margin-top w3-teal w3-center">
+        <h2>Маркировка взрывозащищенного электрооборудования</h2>
+    </div>
+
+    <div class="w3-container w3-padding w3-large">
+        <p style="margin: 0; padding: 0;"><u>Выберите маркировку:</u></p>
+        <p style="margin: 0; padding: 0;">
+            <input id="radioGOST" class="w3-radio" type="radio" name="mode" value="ГОСТ" onchange="OnModeChange()" checked>
+            <label>по ГОСТ</label>
+        </p>
+        <p style="margin: 0; padding: 0;">
+            <input id="radioPIVRE" class="w3-radio" type="radio" name="mode" value="ПИВРЭ" onchange="OnModeChange()">
+            <label>по ПИВРЭ</label>
+        </p>
+        <p style="margin: 0; padding: 0;">
+            <input id="radioPIVE" class="w3-radio" type="radio" name="mode" value="ПИВЭ" onchange="OnModeChange()">
+            <label>по ПИВЭ</label>
+        </p>
+    </div>
+
+    <div id="divGOST" class="w3-container w3-padding w3-large">
+        <p style="margin: 0; padding: 0;"><u>Введите маркировку по ГОСТ:</u></p>
+    </div>
+
+    <div id="divPIVRE" class="w3-container w3-padding w3-large">
+        <p style="margin: 0; padding: 0;"><u>Введите маркировку по ПИВРЭ:</u></p>
+    </div>
+
+    <div id="divPIVE" class="w3-container w3-padding w3-large">
+        <p style="margin: 0; padding: 0;"><u>Введите маркировку по ПИВЭ:</u></p>
+    </div>
+
+    <footer class="w3-container w3-margin-top w3-padding w3-blue-grey w3-bar w3-small">
+        <a class="w3-bar-item w3-hover-blue" target="_blank"
+            href="https://www.consultant.ru/cons/cgi/online.cgi?req=doc&base=LAW&n=422166&dst=1000000001">ФЗ №123</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank"
+            href="https://www.elec.ru/library/direction/pue.html">ПУЭ</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank"
+            href="https://meganorm.ru/Data2/1/4294846/4294846921.pdf">ГОСТ Р 51330.9-99. Часть 10</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank"
+            href="https://meganorm.ru/Data2/1/4294847/4294847031.pdf">Часть 12</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank"
+            href="https://meganorm.ru/Data2/1/4294818/4294818803.pdf">Часть 14</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank" href="https://dokipedia.ru/document/5319820">НПБ 111-98</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank"
+            href="https://www.mchs.gov.ru/dokumenty/svody-pravil/527">СП 156.13130.2014</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank" href="https://www.mchs.gov.ru/dokumenty/602">Правила
+            противопожарного режима в РФ</a>
+        <a class="w3-bar-item w3-hover-blue" target="_blank" href="cabels.pdf">Расшифровка маркировки кабелей и
+            проводов</a>
+    </footer>
+    <div class="w3-blue-gray w3-padding w3-small w3-right-align">
+        <a class="w3-bar-item w3-hover-blue w3-padding" target="_blank" href="certificate.pdf">© Уральский институт ГПС
+            МЧС России, 2022</a>
+    </div>
+</body>
+
+</html>
