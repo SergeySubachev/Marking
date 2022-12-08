@@ -48,8 +48,8 @@ function GetDescriptionGOST() {
     else {
         var kinds = mark.substring(3, groupPos);
         var i = 0;
-        do {
-            if (kinds.length > i) {
+        if (kinds.length > i) {
+            do {
                 var kind = kinds.substring(i, i + 1);
                 switch (kind) {
                     case 'd':
@@ -78,23 +78,26 @@ function GetDescriptionGOST() {
                                 ShowError();
                                 return;
                             }
+                            i++;
                         }
                         description.push(`${iStr} - вид взрывозащиты: "Искробезопасная электрическая цепь"`);
-                       
                         break;
                     default:
                         ShowError();
                         return;
                 }
-            }
-            else {
-                ShowError();
-                return;
-            }
-        } while ();
-
+                i++;
+            } while (i < kinds.length);
+        }
+        else {
+            ShowError();
+            return;
+        }
     }
 
+    ShowDescription(description);
+}
 
-
+function ShowDescription(description) {
+    
 }
